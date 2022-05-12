@@ -39,8 +39,8 @@ def get_people():
 
 @app.route('/people/<int:people_id>', methods=['GET'])
 def get_people_id(people_id):
-    people1 = People.query.filter_by(id=people_id)[0]
-
+    people1 = People.query.get(people_id)
+    print(people1)
     return jsonify(people1.serialize()), 200
 
 
@@ -54,7 +54,8 @@ def get_planets():
 
 @app.route('/planets/<int:planets_id>', methods=['GET'])
 def get_planets_id(planets_id):
-    planet1 = Planets.query.filter_by(id=planets_id)[0]
+    planet1 = Planets.query.get(planets_id)
+    print(planet1)
 
     return jsonify(planet1.serialize()), 200
 
